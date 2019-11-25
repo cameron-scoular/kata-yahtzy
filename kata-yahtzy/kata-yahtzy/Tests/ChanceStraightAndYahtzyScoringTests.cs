@@ -7,12 +7,12 @@ namespace kata_yahtzy
 {
     public class ChanceStraightAndYahtzyScoringTests
     {
-        private DiceScoreCalculator DiceScoreCalculator;
+        private DieScoreCalculator DieScoreCalculator;
         
         [SetUp]
         public void Setup()
         {
-            DiceScoreCalculator = new DiceScoreCalculator();
+            DieScoreCalculator = new DieScoreCalculator();
             
         }
 
@@ -22,7 +22,7 @@ namespace kata_yahtzy
 
             var dieArray = new int[] {1, 2, 3, 2, 5};
 
-            var score = DiceScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
+            var score = DieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
             
             Assert.AreEqual(13, score);
 
@@ -34,7 +34,7 @@ namespace kata_yahtzy
 
             var dieArray = new int[] {2, 2, 2, 2, 2};
 
-            var score = DiceScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
+            var score = DieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
             
             Assert.AreEqual(10, score);
 
@@ -46,7 +46,7 @@ namespace kata_yahtzy
 
             var dieArray = new int[] {1, 2, 3, 4, 5};
 
-            var score = DiceScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.SmallStraight);
+            var score = DieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.SmallStraight);
             
             Assert.AreEqual(15, score);
 
@@ -58,7 +58,7 @@ namespace kata_yahtzy
 
             var dieArray = new int[] {1, 2, 4, 4, 5};
 
-            var score = DiceScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.SmallStraight);
+            var score = DieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.SmallStraight);
             
             Assert.AreEqual(0, score);
 
@@ -70,7 +70,7 @@ namespace kata_yahtzy
 
             var dieArray = new int[] {2, 3, 4, 5, 6};
 
-            var score = DiceScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.LargeStraight);
+            var score = DieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.LargeStraight);
             
             Assert.AreEqual(20, score);
 
@@ -82,7 +82,7 @@ namespace kata_yahtzy
 
             var dieArray = new int[] {2, 3, 5, 5, 6};
 
-            var score = DiceScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.LargeStraight);
+            var score = DieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.LargeStraight);
             
             Assert.AreEqual(0, score);
 
@@ -93,14 +93,14 @@ namespace kata_yahtzy
         {
             var dieArray = new int[5];
 
-            for (int i = 1; i < 7; i++)
+            for (int dieNumber = 1; dieNumber <= 6; dieNumber++)
             {
                 for (int j = 0; j < 5; j++)
                 {
-                    dieArray[j] = i;
+                    dieArray[j] = dieNumber;
                 }
 
-                Assert.AreEqual(50, DiceScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Yatzy));
+                Assert.AreEqual(50, DieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Yatzy));
 
             }
         }
@@ -110,7 +110,7 @@ namespace kata_yahtzy
         {
             var dieArray = new int[5]{1, 2, 1, 1, 1};
             
-            Assert.AreEqual(0, DiceScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Yatzy));
+            Assert.AreEqual(0, DieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Yatzy));
             
         }
        

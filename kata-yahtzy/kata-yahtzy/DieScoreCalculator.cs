@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace kata_yahtzy
 {
-    public class DiceScoreCalculator
+    public class DieScoreCalculator
     {
 
         public int ScoreDieRoll(int[] dieArray, ScoringCategory scoringCategory)
