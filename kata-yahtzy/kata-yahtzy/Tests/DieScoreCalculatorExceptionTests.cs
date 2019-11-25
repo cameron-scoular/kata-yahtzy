@@ -14,7 +14,7 @@ namespace kata_yahtzy
         }
         
         [Test]
-        public void ScoreDieRoll_ThrowsException_WithTooLongDieArray()
+        public void ScoreDieRoll_ThrowsArgumentException_WithTooLongDieArray()
         {
 
             var dieArray = new int[] {1, 2, 3, 4, 5, 6};
@@ -24,14 +24,14 @@ namespace kata_yahtzy
                 var score = DiceScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
                 Assert.Fail();
             }
-            catch (Exception e)
+            catch (ArgumentException e)
             {
             }
             
         }
         
         [Test]
-        public void ScoreDieRoll_ThrowsException_WithTooShortDieArray()
+        public void ScoreDieRoll_ThrowsArgumentException_WithTooShortDieArray()
         {
 
             var dieArray = new int[] {1, 2, 3, 4};
@@ -41,14 +41,14 @@ namespace kata_yahtzy
                 var score = DiceScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
                 Assert.Fail();
             }
-            catch (Exception e)
+            catch (ArgumentException e)
             {
             }
             
         }
         
         [Test]
-        public void ScoreDieRoll_ThrowsException_WithTooHighDieValue()
+        public void ScoreDieRoll_ThrowsArgumentException_WithTooHighDieValue()
         {
 
             var dieArray = new int[] {1, 3, 4, 7, 6};
@@ -58,14 +58,14 @@ namespace kata_yahtzy
                 var score = DiceScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
                 Assert.Fail();
             }
-            catch (Exception e)
+            catch (ArgumentException e)
             {
             }
             
         }
         
         [Test]
-        public void ScoreDieRoll_ThrowsException_WithNegativeDieValue()
+        public void ScoreDieRoll_ThrowsArgumentException_WithNegativeDieValue()
         {
 
             var dieArray = new int[] {1, 2, 4, -5, 6};
@@ -75,14 +75,14 @@ namespace kata_yahtzy
                 var score = DiceScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
                 Assert.Fail();
             }
-            catch (Exception e)
+            catch (ArgumentException e)
             {
             }
             
         }
         
         [Test]
-        public void ScoreDieRoll_ThrowsException_WithZeroDieValue()
+        public void ScoreDieRoll_ThrowsArgumentException_WithZeroDieValue()
         {
 
             var dieArray = new int[] {1, 3, 3, 4, 0};
@@ -92,7 +92,7 @@ namespace kata_yahtzy
                 var score = DiceScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
                 Assert.Fail();
             }
-            catch (Exception e)
+            catch (ArgumentException e)
             {
             }
             

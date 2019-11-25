@@ -19,6 +19,8 @@ namespace kata_yahtzy
             {
                 case ScoringCategory.Chance:
                     return dieArray.Sum();
+                case ScoringCategory.Yatzy:
+                    return IsYatzy(dieArray) ? 50 : 0;
                 case ScoringCategory.SmallStraight:
                     return IsSmallStraight(dieArray) ? dieArray.Sum() : 0;
                 case ScoringCategory.LargeStraight:
@@ -73,6 +75,11 @@ namespace kata_yahtzy
             }
 
             return true;
+        }
+
+        private bool IsYatzy(int[] dieArray)
+        {
+            return dieArray.All(x => x == dieArray[0]);
         }
         
     }
