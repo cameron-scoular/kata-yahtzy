@@ -14,11 +14,18 @@ namespace kata_yahtzy
             {
                 throw new ArgumentException();
             }
-            
-            if (scoringCategory == ScoringCategory.Chance)
+
+            switch (scoringCategory)
             {
-                return dieArray.Sum();
+                case ScoringCategory.Chance:
+                    return dieArray.Sum();
+                case ScoringCategory.SmallStraight:
+                    return IsSmallStraight(dieArray) ? dieArray.Sum() : 0;
+                case ScoringCategory.LargeStraight:
+                    return IsLargeStraight(dieArray) ? dieArray.Sum() : 0;
+                    
             }
+            
 
             return -1;
         }
@@ -34,6 +41,32 @@ namespace kata_yahtzy
             foreach (var dieValue in dieArray)
             {
                 if (dieValue < 1 || dieValue > 6)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool IsSmallStraight(int[] dieArray)
+        {
+            for (var i = 1; i < 6; i++)
+            {
+                if (!dieArray.Contains(i))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+        
+        private bool IsLargeStraight(int[] dieArray)
+        {
+            for (var i = 2; i < 7; i++)
+            {
+                if (!dieArray.Contains(i))
                 {
                     return false;
                 }
