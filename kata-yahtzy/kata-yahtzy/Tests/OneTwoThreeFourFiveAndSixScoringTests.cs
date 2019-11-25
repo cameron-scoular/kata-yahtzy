@@ -55,7 +55,7 @@ namespace kata_yahtzy
 
             dieArray = new int[5] {5, 3, 3, 3, 5};
 
-            Assert.AreEqual(10, _dieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Five));
+            Assert.AreEqual(10, _dieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Fives));
 
             dieArray = new int[5] {6, 3, 6, 3, 5};
 
@@ -85,7 +85,7 @@ namespace kata_yahtzy
                 case 4:
                     return ScoringCategory.Fours;
                 case 5:
-                    return ScoringCategory.Five;
+                    return ScoringCategory.Fives;
                 case 6:
                     return ScoringCategory.Sixes;
             }
