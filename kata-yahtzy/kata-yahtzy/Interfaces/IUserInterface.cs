@@ -12,12 +12,12 @@ namespace kata_yahtzy
 
         void ShowDieRoll(int[] dieArray);
 
-        void TellUserStartingNewTurn(GameState gameState);
+        void TellUserStartingNewTurn(Player player);
 
-        void TellUserCurrentCategoryScores(GameState gameState);
+        void TellUserCurrentCategoryScores(Player player);
 
         void TellUserGameStarting();
 
-        void TellUserGameCompleted();
+        void TellUsersGameCompleted();
     }
 }

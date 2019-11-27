@@ -86,20 +86,20 @@ namespace kata_yahtzy
             }
         }
 
-        public void TellUserStartingNewTurn(GameState gameState)
+        public void TellUserStartingNewTurn(Player player)
         {
             Console.WriteLine("--------------------------------------------------------------------------");
-            Console.WriteLine("Starting turn " + gameState.TurnNumber);
+            Console.WriteLine("Starting {0}'s turn {1}", player.PlayerName, player.PlayerGameState.TurnNumber);
             Console.WriteLine("--------------------------------------------------------------------------");
-            TellUserCurrentCategoryScores(gameState);
+            TellUserCurrentCategoryScores(player);
             Console.WriteLine("--------------------------------------------------------------------------");
         }
 
-        public void TellUserCurrentCategoryScores(GameState gameState)
+        public void TellUserCurrentCategoryScores(Player player)
         {
-            Console.WriteLine("Score categories:");
+            Console.WriteLine("Score categories for {0}:", player.PlayerName);
 
-            foreach (var (category, score) in gameState.ScoreCategoryToScoreDictionary)
+            foreach (var (category, score) in player.PlayerGameState.ScoreCategoryToScoreDictionary)
             {
                 if (score != null)
                 {
@@ -111,7 +111,7 @@ namespace kata_yahtzy
                 }
             }
             
-            Console.WriteLine("Total Score: {0}", gameState.TotalScore);
+            Console.WriteLine("{0} Total Score: {1}", player.PlayerName, player.PlayerGameState.TotalScore);
         }
 
         public void TellUserGameStarting()
@@ -119,7 +119,7 @@ namespace kata_yahtzy
             Console.WriteLine("New game is starting...");
         }
 
-        public void TellUserGameCompleted()
+        public void TellUsersGameCompleted()
         {
             Console.WriteLine("--------------------------------------------------------------------------");
             Console.WriteLine("Game Completed");

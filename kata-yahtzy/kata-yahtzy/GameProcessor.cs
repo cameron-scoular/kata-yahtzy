@@ -1,37 +1,64 @@
 using System;
+using System.Collections.Generic;
 
 namespace kata_yahtzy
 {
     public class GameProcessor
     {
-        public readonly TurnProcessor TurnProcessor;
-        public GameState GameState;
-        public readonly IUserInterface UserInterface;
-        
-        public GameProcessor(TurnProcessor turnProcessor, GameState gameState, IUserInterface userInterface)
+        private readonly IUserInterface UserInterface;
+        private readonly List<Player> PlayerList;
+
+        public bool GameIsActive
         {
-            TurnProcessor = turnProcessor;
-            GameState = gameState;
+            get
+            {
+                foreach (var player in PlayerList)
+                {
+                    foreach (var score in player.PlayerGameState.ScoreCategoryToScoreDictionary)
+                    {
+                        if (score.Value == null)
+                        {
+                            return true;
+                        }
+                    }
+                }
+
+                return false;
+            }
+        }
+
+        public GameProcessor(IUserInterface userInterface, List<Player> playerList)
+        {
             UserInterface = userInterface;
+            PlayerList = playerList;
         }
 
         public void InitializeNewGame()
         {
-            GameState.ResetGameState();
+            foreach (var player in PlayerList)
+            {
+                player.PlayerGameState.ResetGameState();
+            }
         }
 
         public void PlayGame()
         {
             UserInterface.TellUserGameStarting();
             
-            while (GameState.IsPlaying)
+            while (GameIsActive)
             {
-                TurnProcessor.PlayTurn();
-                
+                foreach (var player in PlayerList)
+                {
+                    player.PlayerTurnProcessor.PlayTurn(player);
+                }
             }
 
-            UserInterface.TellUserGameCompleted();
-            UserInterface.TellUserCurrentCategoryScores(GameState);            
+            UserInterface.TellUsersGameCompleted();
+
+            foreach (var player in PlayerList)
+            {
+                UserInterface.TellUserCurrentCategoryScores(player);
+            }
         }
         
         

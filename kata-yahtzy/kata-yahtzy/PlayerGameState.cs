@@ -3,9 +3,8 @@ using System.Dynamic;
 
 namespace kata_yahtzy
 {
-    public class GameState
+    public class PlayerGameState
     {
-        
         public int NumberRollsLeftInTurn { get; private set; }
 
         public int TurnNumber;
@@ -31,7 +30,9 @@ namespace kata_yahtzy
 
         public Dictionary<ScoringCategory, int?> ScoreCategoryToScoreDictionary;
 
-        public void InitializeScoreCategoryToScoreDictionary()
+  
+
+        public void InitializeScoringDictionary()
         {
             ScoreCategoryToScoreDictionary = new Dictionary<ScoringCategory, int?>()
             {
@@ -56,7 +57,7 @@ namespace kata_yahtzy
         public void ResetGameState()
         {
             TurnNumber = 1;
-            InitializeScoreCategoryToScoreDictionary();
+            InitializeScoringDictionary();
         }
 
         public void StartTurn()
