@@ -7,12 +7,12 @@ namespace kata_yahtzy
 {
     public class OneTwoThreeFourFiveAndSixScoringTests
     {
-        private DieScoreCalculator _dieScoreCalculator;
+        private DefaultDieScoreCalculator _defaultDieScoreCalculator;
         
         [SetUp]
         public void Setup()
         {
-            _dieScoreCalculator = new DieScoreCalculator();
+            _defaultDieScoreCalculator = new DefaultDieScoreCalculator();
             
         }
 
@@ -29,7 +29,7 @@ namespace kata_yahtzy
                     dieArray[i] = dieNumber;
                 }
 
-                Assert.AreEqual(dieArray.Sum(), _dieScoreCalculator.ScoreDieRoll(dieArray, MapIntToScoringCategory(dieNumber)));
+                Assert.AreEqual(dieArray.Sum(), _defaultDieScoreCalculator.ScoreDieRoll(dieArray, MapIntToScoringCategory(dieNumber)));
             }
             
         }
@@ -39,27 +39,27 @@ namespace kata_yahtzy
         {
             var dieArray = new int[5] {1, 1, 2, 4, 5};
 
-            Assert.AreEqual(2, _dieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Ones));
+            Assert.AreEqual(2, _defaultDieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Ones));
 
             dieArray = new int[5] {2, 2, 2, 4, 5};
 
-            Assert.AreEqual(6, _dieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Twos));
+            Assert.AreEqual(6, _defaultDieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Twos));
 
             dieArray = new int[5] {3, 3, 3, 3, 5};
 
-            Assert.AreEqual(12, _dieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Threes));
+            Assert.AreEqual(12, _defaultDieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Threes));
 
             dieArray = new int[5] {4, 3, 3, 3, 5};
 
-            Assert.AreEqual(4, _dieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Fours));
+            Assert.AreEqual(4, _defaultDieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Fours));
 
             dieArray = new int[5] {5, 3, 3, 3, 5};
 
-            Assert.AreEqual(10, _dieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Fives));
+            Assert.AreEqual(10, _defaultDieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Fives));
 
             dieArray = new int[5] {6, 3, 6, 3, 5};
 
-            Assert.AreEqual(12, _dieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Sixes));
+            Assert.AreEqual(12, _defaultDieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Sixes));
 
         }
 
@@ -68,7 +68,7 @@ namespace kata_yahtzy
         {
             var dieArray = new int[5] {1, 3, 5, 5, 5};
             
-            Assert.AreEqual(0, _dieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Fours));
+            Assert.AreEqual(0, _defaultDieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Fours));
         }
         
 

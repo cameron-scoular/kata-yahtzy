@@ -5,12 +5,12 @@ namespace kata_yahtzy
 {
     public class DieScoreCalculatorExceptionTests
     {
-        private DieScoreCalculator _dieScoreCalculator;
+        private DefaultDieScoreCalculator _defaultDieScoreCalculator;
         
         [SetUp]
         public void Setup()
         {
-            _dieScoreCalculator = new DieScoreCalculator();
+            _defaultDieScoreCalculator = new DefaultDieScoreCalculator();
         }
         
         [Test]
@@ -21,7 +21,7 @@ namespace kata_yahtzy
 
             try
             {
-                var score = _dieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
+                var score = _defaultDieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
                 Assert.Fail();
             }
             catch (ArgumentException e)
@@ -38,7 +38,7 @@ namespace kata_yahtzy
 
             try
             {
-                var score = _dieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
+                var score = _defaultDieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
                 Assert.Fail();
             }
             catch (ArgumentException e)
@@ -55,7 +55,7 @@ namespace kata_yahtzy
 
             try
             {
-                var score = _dieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
+                var score = _defaultDieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
                 Assert.Fail();
             }
             catch (ArgumentException e)
@@ -72,7 +72,7 @@ namespace kata_yahtzy
 
             try
             {
-                var score = _dieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
+                var score = _defaultDieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
                 Assert.Fail();
             }
             catch (ArgumentException e)
@@ -89,7 +89,7 @@ namespace kata_yahtzy
 
             try
             {
-                var score = _dieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
+                var score = _defaultDieScoreCalculator.ScoreDieRoll(dieArray, ScoringCategory.Chance);
                 Assert.Fail();
             }
             catch (ArgumentException e)
