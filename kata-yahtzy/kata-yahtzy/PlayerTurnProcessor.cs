@@ -45,9 +45,6 @@ namespace kata_yahtzy
                     break;
                 }
             }
-
-            PlayerGameState.TurnNumber++;
-
         }
 
         private void ChooseCategoryAndScoreDieRoll(int[] dieArray)

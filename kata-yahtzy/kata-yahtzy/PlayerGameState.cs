@@ -6,9 +6,7 @@ namespace kata_yahtzy
     public class PlayerGameState
     {
         public int NumberRollsLeftInTurn { get; private set; }
-
-        public int TurnNumber;
-
+        
         public int TotalScore
         {
             get
@@ -25,9 +23,7 @@ namespace kata_yahtzy
                 return totalScore;
             }
         }
-
-        public bool IsPlaying => TurnNumber <= ScoreCategoryToScoreDictionary.Count;
-
+        
         public Dictionary<ScoringCategory, int?> ScoreCategoryToScoreDictionary;
 
   
@@ -56,7 +52,6 @@ namespace kata_yahtzy
 
         public void ResetGameState()
         {
-            TurnNumber = 1;
             InitializeScoringDictionary();
         }
 

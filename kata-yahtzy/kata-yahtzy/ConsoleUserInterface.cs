@@ -89,7 +89,7 @@ namespace kata_yahtzy
         public void TellUserStartingNewTurn(Player player)
         {
             Console.WriteLine("--------------------------------------------------------------------------");
-            Console.WriteLine("Starting {0}'s turn {1}", player.PlayerName, player.PlayerGameState.TurnNumber);
+            Console.WriteLine("Starting {0}'s turn", player.PlayerName);
             Console.WriteLine("--------------------------------------------------------------------------");
             TellUserCurrentCategoryScores(player);
             Console.WriteLine("--------------------------------------------------------------------------");
