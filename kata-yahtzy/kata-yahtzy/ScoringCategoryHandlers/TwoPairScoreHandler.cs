@@ -11,8 +11,6 @@ namespace kata_yahtzy
 
             return pairValues.Count() == 2 ? 2 * pairValues.Sum() : 0;
             
-
-            
         }
     }
 }
